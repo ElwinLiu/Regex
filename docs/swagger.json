@@ -1,0 +1,762 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is the API document of Intelligent Terminal Backend",
+        "title": "Intelligent Terminal Backend API",
+        "contact": {},
+        "version": "0.1"
+    },
+    "paths": {
+        "/match/anonymous": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "Match"
+                ],
+                "summary": "used to get anonymous match result",
+                "responses": {}
+            }
+        },
+        "/match/audio": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "Match"
+                ],
+                "summary": "used to get audio match result",
+                "parameters": [
+                    {
+                        "description": "audio match request parameter",
+                        "name": "match\"",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.AudioMatchReq"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/match/audioStop": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "Match"
+                ],
+                "summary": "used to stop current audio match",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "call id",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/match/matcherDetail": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "Match"
+                ],
+                "summary": "used to get audio matcher's detailed information",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "call id",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/match/normal": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "Match"
+                ],
+                "summary": "used to get normal match result",
+                "responses": {}
+            }
+        },
+        "/moment/comment": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "Moment"
+                ],
+                "summary": "used to comment a moment or others' comment under this moment and return status",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "belonging_id",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "moment_id",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "receiver_id",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "text_content",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "file",
+                        "description": "the image that will be posted by user's comment",
+                        "name": "file",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/moment/commentList": {
+            "get": {
+                "tags": [
+                    "Moment"
+                ],
+                "summary": "given a certain page number and moment_id, return comments of this moment and 2 of its subcommentList",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "the passed-in parameter of page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "the passed-in parameter of moment_id",
+                        "name": "moment_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/moment/delete": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "Moment"
+                ],
+                "summary": "used to delete new moment and return status",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "the passed-in parameter of moment's id who is waiting to be deleted",
+                        "name": "moment_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/moment/followedList": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "Moment"
+                ],
+                "summary": "given a certain page number and user_id, return moments of the follwed",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "the passed-in parameter of page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/moment/getDetail": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "Moment"
+                ],
+                "summary": "given a certain moment id return info of this moment",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "the passed-in parameter of moment_id",
+                        "name": "moment_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/moment/like": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "Moment"
+                ],
+                "summary": "used to like or undo like a moment and return status",
+                "parameters": [
+                    {
+                        "description": "the passed-in parameter of moment's 'like' operation",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.MomentLikeReq"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/moment/modify": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "Moment"
+                ],
+                "summary": "used to modify new moment and return status",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "image",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "moment_id",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "text_content",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "file",
+                        "description": "the image that will be posted by user",
+                        "name": "file",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/moment/publish": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "Moment"
+                ],
+                "summary": "used to publish new moment and return status",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "the passed-in parameter of moment's content",
+                        "name": "text_content",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "file",
+                        "description": "the image that will be posted by user",
+                        "name": "file",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/moment/squareList": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "Moment"
+                ],
+                "summary": "given a certain page number and user_id, return moments of square",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "the passed-in parameter of page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/moment/subCommentList": {
+            "get": {
+                "tags": [
+                    "Moment"
+                ],
+                "summary": "given a certain page number and belonging_id, return subcomments of this comment",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "the passed-in parameter of page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "the passed-in parameter of belonging_id",
+                        "name": "belonging_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/avatarUpdate": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "used to upload image and replace user's avatar as the uploaded image",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "the avatar image file selected by the user",
+                        "name": "file",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/avatarUpdateBase64": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "used to update the avatar in the form of base64 string",
+                "parameters": [
+                    {
+                        "description": "base64 string",
+                        "name": "\"base64\"",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.AvatarUpdateBase64Req"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/detail": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "used to get the target user's detailed information",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "id",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/follow": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "used to follow other people",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "id",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/followerList": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "used to get the user's follower list",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "id",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "used to authorize user and return jwt token, id",
+                "parameters": [
+                    {
+                        "description": "the passed-in parameter of login function",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.UserLoginReq"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/modify": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "used to modify the user's personal information",
+                "parameters": [
+                    {
+                        "description": "the passed-in parameter of modify function",
+                        "name": "UserModifyReq",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.UserModifyReq"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/momentList": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "used to show the moment list of specified user",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "id",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/passwordChange": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "used to modify the user's password",
+                "parameters": [
+                    {
+                        "description": "old password and new password",
+                        "name": "UserPasswordChangeReq",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.UserPasswordChangeReq"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/register": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "used to register new account",
+                "parameters": [
+                    {
+                        "description": "the passed-in parameter of register function",
+                        "name": "UserRegisterReq",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.UserRegisterReq"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/subscribedList": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "used to get the user's subscribed list",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "id",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/tagList": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "used to get all the tag",
+                "responses": {}
+            }
+        }
+    },
+    "definitions": {
+        "request.AudioMatchReq": {
+            "type": "object",
+            "properties": {
+                "channel_name": {
+                    "type": "string"
+                },
+                "uid": {
+                    "type": "integer"
+                }
+            }
+        },
+        "request.AvatarUpdateBase64Req": {
+            "type": "object",
+            "properties": {
+                "base64": {
+                    "type": "string"
+                }
+            }
+        },
+        "request.MomentLikeReq": {
+            "type": "object",
+            "properties": {
+                "like_status": {
+                    "type": "boolean"
+                },
+                "moment_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "request.UserLoginReq": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "request.UserModifyReq": {
+            "type": "object",
+            "properties": {
+                "nickname": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "request.UserPasswordChangeReq": {
+            "type": "object",
+            "properties": {
+                "new_password": {
+                    "type": "string"
+                },
+                "old_password": {
+                    "type": "string"
+                }
+            }
+        },
+        "request.UserRegisterReq": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "nickname": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

@@ -1,0 +1,475 @@
+definitions:
+  request.AudioMatchReq:
+    properties:
+      channel_name:
+        type: string
+      uid:
+        type: integer
+    type: object
+  request.AvatarUpdateBase64Req:
+    properties:
+      base64:
+        type: string
+    type: object
+  request.MomentLikeReq:
+    properties:
+      like_status:
+        type: boolean
+      moment_id:
+        type: integer
+    type: object
+  request.UserLoginReq:
+    properties:
+      account:
+        type: string
+      password:
+        type: string
+    type: object
+  request.UserModifyReq:
+    properties:
+      nickname:
+        type: string
+      tags:
+        items:
+          type: integer
+        type: array
+    type: object
+  request.UserPasswordChangeReq:
+    properties:
+      new_password:
+        type: string
+      old_password:
+        type: string
+    type: object
+  request.UserRegisterReq:
+    properties:
+      account:
+        type: string
+      nickname:
+        type: string
+      password:
+        type: string
+      tags:
+        items:
+          type: integer
+        type: array
+    type: object
+info:
+  contact: {}
+  description: This is the API document of Intelligent Terminal Backend
+  title: Intelligent Terminal Backend API
+  version: "0.1"
+paths:
+  /match/anonymous:
+    get:
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to get anonymous match result
+      tags:
+      - Match
+  /match/audio:
+    post:
+      parameters:
+      - description: audio match request parameter
+        in: body
+        name: match"
+        required: true
+        schema:
+          $ref: '#/definitions/request.AudioMatchReq'
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to get audio match result
+      tags:
+      - Match
+  /match/audioStop:
+    get:
+      parameters:
+      - description: call id
+        in: query
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to stop current audio match
+      tags:
+      - Match
+  /match/matcherDetail:
+    get:
+      parameters:
+      - description: call id
+        in: query
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to get audio matcher's detailed information
+      tags:
+      - Match
+  /match/normal:
+    get:
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to get normal match result
+      tags:
+      - Match
+  /moment/comment:
+    post:
+      parameters:
+      - in: formData
+        name: belonging_id
+        type: integer
+      - in: formData
+        name: moment_id
+        type: integer
+      - in: formData
+        name: receiver_id
+        type: integer
+      - in: formData
+        name: text_content
+        type: string
+      - description: the image that will be posted by user's comment
+        in: formData
+        name: file
+        type: file
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to comment a moment or others' comment under this moment and return
+        status
+      tags:
+      - Moment
+  /moment/commentList:
+    get:
+      parameters:
+      - description: the passed-in parameter of page
+        in: query
+        name: page
+        required: true
+        type: integer
+      - description: the passed-in parameter of moment_id
+        in: query
+        name: moment_id
+        required: true
+        type: integer
+      responses: {}
+      summary: given a certain page number and moment_id, return comments of this
+        moment and 2 of its subcommentList
+      tags:
+      - Moment
+  /moment/delete:
+    post:
+      parameters:
+      - description: the passed-in parameter of moment's id who is waiting to be deleted
+        in: query
+        name: moment_id
+        required: true
+        type: integer
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to delete new moment and return status
+      tags:
+      - Moment
+  /moment/followedList:
+    get:
+      parameters:
+      - description: the passed-in parameter of page
+        in: query
+        name: page
+        required: true
+        type: integer
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: given a certain page number and user_id, return moments of the follwed
+      tags:
+      - Moment
+  /moment/getDetail:
+    get:
+      parameters:
+      - description: the passed-in parameter of moment_id
+        in: query
+        name: moment_id
+        required: true
+        type: integer
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: given a certain moment id return info of this moment
+      tags:
+      - Moment
+  /moment/like:
+    post:
+      parameters:
+      - description: the passed-in parameter of moment's 'like' operation
+        in: body
+        name: req
+        required: true
+        schema:
+          $ref: '#/definitions/request.MomentLikeReq'
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to like or undo like a moment and return status
+      tags:
+      - Moment
+  /moment/modify:
+    post:
+      parameters:
+      - in: formData
+        name: image
+        type: string
+      - in: formData
+        name: moment_id
+        type: integer
+      - in: formData
+        name: text_content
+        type: string
+      - description: the image that will be posted by user
+        in: formData
+        name: file
+        type: file
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to modify new moment and return status
+      tags:
+      - Moment
+  /moment/publish:
+    post:
+      parameters:
+      - description: the passed-in parameter of moment's content
+        in: query
+        name: text_content
+        required: true
+        type: string
+      - description: the image that will be posted by user
+        in: formData
+        name: file
+        type: file
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to publish new moment and return status
+      tags:
+      - Moment
+  /moment/squareList:
+    get:
+      parameters:
+      - description: the passed-in parameter of page
+        in: query
+        name: page
+        required: true
+        type: integer
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: given a certain page number and user_id, return moments of square
+      tags:
+      - Moment
+  /moment/subCommentList:
+    get:
+      parameters:
+      - description: the passed-in parameter of page
+        in: query
+        name: page
+        required: true
+        type: integer
+      - description: the passed-in parameter of belonging_id
+        in: query
+        name: belonging_id
+        required: true
+        type: integer
+      responses: {}
+      summary: given a certain page number and belonging_id, return subcomments of
+        this comment
+      tags:
+      - Moment
+  /user/avatarUpdate:
+    post:
+      parameters:
+      - description: the avatar image file selected by the user
+        in: formData
+        name: file
+        type: file
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to upload image and replace user's avatar as the uploaded image
+      tags:
+      - User
+  /user/avatarUpdateBase64:
+    post:
+      parameters:
+      - description: base64 string
+        in: body
+        name: '"base64"'
+        required: true
+        schema:
+          $ref: '#/definitions/request.AvatarUpdateBase64Req'
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to update the avatar in the form of base64 string
+      tags:
+      - User
+  /user/detail:
+    get:
+      parameters:
+      - description: id
+        in: query
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to get the target user's detailed information
+      tags:
+      - User
+  /user/follow:
+    get:
+      parameters:
+      - description: id
+        in: query
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to follow other people
+      tags:
+      - User
+  /user/followerList:
+    get:
+      parameters:
+      - description: id
+        in: query
+        name: id
+        required: true
+        type: integer
+      - description: page
+        in: query
+        name: page
+        required: true
+        type: integer
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to get the user's follower list
+      tags:
+      - User
+  /user/login:
+    post:
+      parameters:
+      - description: the passed-in parameter of login function
+        in: body
+        name: req
+        required: true
+        schema:
+          $ref: '#/definitions/request.UserLoginReq'
+      responses: {}
+      summary: used to authorize user and return jwt token, id
+      tags:
+      - User
+  /user/modify:
+    put:
+      parameters:
+      - description: the passed-in parameter of modify function
+        in: body
+        name: UserModifyReq
+        required: true
+        schema:
+          $ref: '#/definitions/request.UserModifyReq'
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to modify the user's personal information
+      tags:
+      - User
+  /user/momentList:
+    get:
+      parameters:
+      - description: id
+        in: query
+        name: id
+        required: true
+        type: integer
+      - description: page
+        in: query
+        name: page
+        required: true
+        type: integer
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to show the moment list of specified user
+      tags:
+      - User
+  /user/passwordChange:
+    put:
+      parameters:
+      - description: old password and new password
+        in: body
+        name: UserPasswordChangeReq
+        required: true
+        schema:
+          $ref: '#/definitions/request.UserPasswordChangeReq'
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to modify the user's password
+      tags:
+      - User
+  /user/register:
+    post:
+      parameters:
+      - description: the passed-in parameter of register function
+        in: body
+        name: UserRegisterReq
+        required: true
+        schema:
+          $ref: '#/definitions/request.UserRegisterReq'
+      responses: {}
+      summary: used to register new account
+      tags:
+      - User
+  /user/subscribedList:
+    get:
+      parameters:
+      - description: id
+        in: query
+        name: id
+        required: true
+        type: integer
+      - description: page
+        in: query
+        name: page
+        required: true
+        type: integer
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: used to get the user's subscribed list
+      tags:
+      - User
+  /user/tagList:
+    get:
+      responses: {}
+      summary: used to get all the tag
+      tags:
+      - User
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
