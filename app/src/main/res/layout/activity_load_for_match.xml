@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#302f4b"
+    >
+
+
+
+
+    <LinearLayout
+        android:id="@+id/LL_toy"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_marginRight="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="60dp"
+            android:id="@+id/load_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerCrop"
+            android:src="@drawable/animation_for_load" />
+
+    </LinearLayout>
+
+
+
+    <!--设置一个倒计时-->
+    <LinearLayout
+        android:id="@+id/LL_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:padding="1dp"
+            android:gravity="center"
+            android:textColor="#1e9eb3"
+            android:text="正在全力为您匹配..."
+            android:textSize="20dp"/>
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+</LinearLayout>

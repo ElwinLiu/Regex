@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/square_navigation"
+    app:startDestination="@+id/recommend">
+
+    <fragment
+        android:id="@+id/follow"
+        android:name="com.hyphenate.easeim.section.moment.ui.follow.FollowFragment"
+        android:label="关注"
+        tools:layout="@layout/fragment_follow" />
+
+    <fragment
+        android:id="@+id/recommend"
+        android:name="com.hyphenate.easeim.section.moment.ui.recommend.RecommendFragment"
+        android:label="推荐"
+        tools:layout="@layout/fragment_recommend" />
+
+
+</navigation>

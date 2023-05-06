@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/image_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingLeft="8dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="8dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="8dp"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="#FFFFFFFF"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/image_cancel_btn"
+        app:layout_constraintTop_toBottomOf="@+id/image_cancel_btn">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <ImageButton
+        android:id="@+id/image_cancel_btn"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_cancel_12dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

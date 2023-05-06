@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/em_login_color_bg"
+    android:orientation="vertical">
+
+    <com.hyphenate.easeui.widget.EaseTitleBar
+        android:id="@+id/toolbar_register"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="700dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:titleBarArrowColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_register_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/em_login_tv_register"
+        android:textColor="@color/em_login_color_text"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/et_login_name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_register"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <EditText
+        android:id="@+id/et_login_name"
+        style="@style/em_login_et_input"
+        android:hint="@string/em_login_name_hint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15" />
+
+    <EditText
+        android:id="@+id/et_login_pwd"
+        style="@style/em_login_et_input"
+        android:layout_marginTop="20dp"
+        android:hint="@string/em_login_password_hint"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@id/et_login_pwd_confirm"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_login_name" />
+
+    <EditText
+        android:id="@+id/et_login_pwd_confirm"
+        style="@style/em_login_et_input"
+        android:layout_marginTop="20dp"
+        android:hint="@string/em_register_password_confirm_hint"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_login_pwd" />
+
+    <LinearLayout
+        android:scaleX="1.1"
+        android:scaleY="1.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:id="@+id/linearLayout1"
+        app:layout_constraintTop_toBottomOf="@id/et_login_pwd_confirm"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout2"
+        >
+
+        <CheckBox
+            android:id="@+id/checkbox1"
+            style="@style/select_style"
+            android:tag="1"
+            android:text="@string/myf_tag1" />
+
+        <CheckBox
+            android:id="@+id/checkbox2"
+            style="@style/select_style"
+            android:tag="2"
+            android:text="@string/myf_tag2" />
+
+        <CheckBox
+            android:id="@+id/checkbox3"
+            style="@style/select_style"
+            android:tag="3"
+            android:text="@string/myf_tag3" />
+
+        <CheckBox
+            android:id="@+id/checkbox4"
+            style="@style/select_style"
+            android:tag="5"
+            android:text="@string/myf_tag4" />
+
+        <CheckBox
+            android:id="@+id/checkbox5"
+            style="@style/select_style"
+            android:tag="6"
+            android:text="@string/myf_tag5" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:scaleX="1.1"
+        android:scaleY="1.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:id="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout3"
+        >
+
+        <CheckBox
+            android:id="@+id/checkbox6"
+            style="@style/select_style"
+            android:tag="7"
+            android:text="@string/myf_tag6" />
+
+        <CheckBox
+            android:id="@+id/checkbox7"
+            style="@style/select_style"
+            android:tag="8"
+            android:text="@string/myf_tag7" />
+
+        <CheckBox
+            android:id="@+id/checkbox8"
+            style="@style/select_style"
+            android:tag="9"
+            android:text="@string/myf_tag8" />
+
+        <CheckBox
+            android:id="@+id/checkbox9"
+            style="@style/select_style"
+            android:tag="10"
+            android:text="@string/myf_tag9" />
+
+        <CheckBox
+            android:id="@+id/checkbox10"
+            style="@style/select_style"
+            android:tag="11"
+            android:text="@string/myf_tag10" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:scaleX="1.1"
+        android:scaleY="1.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:id="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout4"
+        >
+
+        <CheckBox
+            android:id="@+id/checkbox11"
+            style="@style/select_style"
+            android:tag="12"
+            android:text="@string/myf_tag11" />
+
+        <CheckBox
+            android:id="@+id/checkbox12"
+            style="@style/select_style"
+            android:tag="13"
+            android:text="@string/myf_tag12" />
+
+        <CheckBox
+            android:id="@+id/checkbox13"
+            style="@style/select_style"
+            android:tag="14"
+            android:text="@string/myf_tag13" />
+
+        <CheckBox
+            android:id="@+id/checkbox14"
+            style="@style/select_style"
+            android:tag="15"
+            android:text="@string/myf_tag14" />
+
+        <CheckBox
+            android:id="@+id/checkbox15"
+            style="@style/select_style"
+            android:tag="16"
+            android:text="@string/myf_tag15" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:scaleX="1.1"
+        android:scaleY="1.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:id="@+id/linearLayout4"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout5"
+        >
+
+        <CheckBox
+            android:id="@+id/checkbox16"
+            style="@style/select_style"
+            android:tag="17"
+            android:text="@string/myf_tag16" />
+
+        <CheckBox
+            android:id="@+id/checkbox17"
+            style="@style/select_style"
+            android:tag="18"
+            android:text="@string/myf_tag17" />
+
+        <CheckBox
+            android:id="@+id/checkbox18"
+            style="@style/select_style"
+            android:tag="19"
+            android:text="@string/myf_tag18" />
+
+        <CheckBox
+            android:id="@+id/checkbox19"
+            style="@style/select_style"
+            android:tag="20"
+            android:text="@string/myf_tag19" />
+
+        <CheckBox
+            android:id="@+id/checkbox20"
+            style="@style/select_style"
+            android:tag="21"
+            android:text="@string/myf_tag20" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:scaleX="1.1"
+        android:scaleY="1.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:id="@+id/linearLayout5"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout6"
+        >
+
+        <CheckBox
+            android:id="@+id/checkbox21"
+            style="@style/select_style"
+            android:tag="22"
+            android:text="@string/myf_tag21" />
+
+        <CheckBox
+            android:id="@+id/checkbox22"
+            style="@style/select_style"
+            android:tag="23"
+            android:text="@string/myf_tag22" />
+
+        <CheckBox
+            android:id="@+id/checkbox23"
+            style="@style/select_style"
+            android:tag="24"
+            android:text="@string/myf_tag23" />
+
+        <CheckBox
+            android:id="@+id/checkbox24"
+            style="@style/select_style"
+            android:tag="25"
+            android:text="@string/myf_tag24" />
+
+        <CheckBox
+            android:id="@+id/checkbox25"
+            style="@style/select_style"
+            android:tag="26"
+            android:text="@string/myf_tag25" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:scaleX="1.1"
+        android:scaleY="1.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:id="@+id/linearLayout6"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout7"
+        >
+
+        <CheckBox
+            android:id="@+id/checkbox26"
+            style="@style/select_style"
+            android:tag="27"
+            android:text="@string/myf_tag26" />
+
+        <CheckBox
+            android:id="@+id/checkbox27"
+            style="@style/select_style"
+            android:tag="28"
+            android:text="@string/myf_tag27" />
+
+        <CheckBox
+            android:id="@+id/checkbox28"
+            style="@style/select_style"
+            android:tag="29"
+            android:text="@string/myf_tag28" />
+
+        <CheckBox
+            android:id="@+id/checkbox29"
+            style="@style/select_style"
+            android:tag="30"
+            android:text="@string/myf_tag29" />
+
+        <CheckBox
+            android:id="@+id/checkbox30"
+            style="@style/select_style"
+            android:tag="31"
+            android:text="@string/myf_tag30" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:scaleX="1.1"
+        android:scaleY="1.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:id="@+id/linearLayout7"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cb_select"
+        >
+
+        <CheckBox
+            android:id="@+id/checkbox31"
+            style="@style/select_style"
+            android:tag="32"
+            android:text="@string/myf_tag31" />
+
+
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/cb_select"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="@dimen/em_margin_10"
+        android:button="@drawable/demo_cb_agreement_select"
+        android:padding="3dp"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout7" />
+
+    <TextView
+        android:id="@+id/tv_agreement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:maxWidth="300dp"
+        android:text="选择表示同意《Regex》协议"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/cb_select"
+        app:layout_constraintLeft_toRightOf="@id/cb_select"
+        app:layout_constraintTop_toTopOf="@id/cb_select" />
+
+
+    <Button
+        android:id="@+id/btn_login"
+        style="@style/em_login_btn"
+        android:layout_marginTop="@dimen/em_margin_20"
+        android:text="@string/em_register_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_agreement" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

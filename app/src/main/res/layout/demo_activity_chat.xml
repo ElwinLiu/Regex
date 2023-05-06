@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.hyphenate.easeui.widget.EaseTitleBar
+        android:id="@+id/title_bar_message"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/em_common_title_bar_height"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleBarDisplayHomeAsUpEnabled="true" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fl_fragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar_message">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="#FFFFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:layout_constraintStart_toEndOf="@id/chat_avatar_card"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/chat_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_blue"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:text="匹配度 96%"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/chat_avatar_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="#FFFFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/chat_avatar"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:srcCompat="@drawable/ic_personal" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/chat_tag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="他的引力签：王者荣耀"
+            android:textColor="@color/black"
+            android:maxLines="3"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cardView2"
+            app:layout_constraintStart_toEndOf="@+id/chat_avatar_card"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="#FFFFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/chat_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:background="@drawable/btn_blue"
+                android:text="查看主页"
+                android:textColor="@color/white" />
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

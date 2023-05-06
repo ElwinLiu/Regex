@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="myf_tag1">音乐</string>
+    <string name="myf_tag2">体育</string>
+    <string name="myf_tag3">美术</string>
+    <string name="myf_tag4">学霸</string>
+    <string name="myf_tag5">学渣</string>
+
+    <string name="myf_tag6">博主</string>
+    <string name="myf_tag7">设计师</string>
+    <string name="myf_tag8">直男</string>
+    <string name="myf_tag9">coser</string>
+    <string name="myf_tag10">摄影师</string>
+
+
+    <string name="myf_tag11">翻译</string>
+    <string name="myf_tag12">猫控</string>
+    <string name="myf_tag13">厨师</string>
+    <string name="myf_tag14">工程师</string>
+    <string name="myf_tag15">导游</string>
+
+    <string name="myf_tag16">AI训练师</string>
+    <string name="myf_tag17">rapper</string>
+    <string name="myf_tag18">文科生</string>
+    <string name="myf_tag19">理科生</string>
+    <string name="myf_tag20">写手</string>
+
+    <string name="myf_tag21">麦霸</string>
+    <string name="myf_tag22">唱见</string>
+    <string name="myf_tag23">舞见</string>
+    <string name="myf_tag24">咖啡师</string>
+    <string name="myf_tag25">留学生</string>
+
+    <string name="myf_tag26">程序猿</string>
+    <string name="myf_tag27">编剧</string>
+    <string name="myf_tag28">策划</string>
+    <string name="myf_tag29">教育从业者</string>
+    <string name="myf_tag30">互联网民工</string>
+
+    <string name="myf_tag31">声优</string>
+
+    <string name="em_main_title_moment">时刻</string>
+</resources>
