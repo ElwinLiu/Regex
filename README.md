@@ -1,80 +1,80 @@
-# 后端接口文档1.4
+# Back-end interface documentation 1.4
 
-接口文档地址：http://106.14.78.79:40010/swagger/index.html#/
+Interface documentation address: http://106././.79:40010/swagger/index.html#/
 
-后端统一返回格式：
+Back-end uniform return format:
 
 ```json
 {
-  "content": 
-  "message": "",
+  "content". 
+  "message": "".
   "success": true
 }
 ```
 
-content为模板类型，存放接口的返回内容
+content is a template type that holds the return content of the interface
 
-message为string类型，返回执行消息，如成功执行或执行所遇到的错误
+message is a string that returns the execution message, such as success or the error encountered by the execution
 
-success为bool类型，表示接口是否被成功调用
+success is a bool type, indicating whether the interface was called successfully
 
 ## User
 
 ### Register
 
-用户注册接口
+User registration interface
 
-**调用地址**：http://106.14.78.79:40010/user/register
+**Call address**: http://106././.79:40010/user/register
 
-**接口请求类型**：POST
+**Interface request type**: POST
 
-**传入参数类型**：body,即Android开发中`retrofit2`的`@Body`注记类型
+**Input parameter type**: body, i.e. `@Body` note type of `retrofit2` in Android development
 
 ```json
 {
-  "account": "string",
-  "nickname": "string",
-  "password": "string",
+  "account": "string".
+  "nickname": "string".
+  "password": "string".
   "tags": [
     0
   ]
 }
 ```
 
-**返回参数**：success字段代表是否成功注册，若success为false，则message中为错误原因。content始终为空字符串
+**return parameters**: the success field represents whether the registration is successful or not, if success is false, the error reason is in message. content is always the empty string
 
 ### Login
 
-用户登录接口
+User login interface
 
-**调用地址**：http://106.14.78.79:40010/user/login
+**Call address**: http://106././.79:40010/user/login
 
-**接口请求类型**：POST
+**Interface request type**: POST
 
-**传入参数类型**：body
+**Input parameter type**: body
 
 ```json
 {
-  "account": "string",
+  "account": "string".
   "password": "string"
 }
 ```
 
-**返回参数**：
+**return parameters**:
 
-若success为false，则message中为错误原因。content为空字符串
+If success is false, the message is the reason for the error. content is the empty string
 
-若success为true，则content中含有与用户的ID和jwt token
+If success is true, the content contains the ID and jwt token of the user.
 
-以下为成功调用的返回结果
+The following is the return result of a successful call
 
 ```json
 {
   "content": {
-    "id": 1,
+    "id": 1.
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZXhwIjoxNjcxMzU1MDIxfQ.kdJS1MTiYD6UCXFzTxfm43tMA2aaUxfrc-t40J81MX0"
-  },
-  "message": "login successfully",
+  }.
+  "message": "login successfully".
   "success": true
 }
 ```
@@ -83,76 +83,76 @@ success为bool类型，表示接口是否被成功调用
 
 ### AvatarUpload
 
-用户上传更新头像接口，调用时需在header的Authorization字段中携带用户的jwt token
+User upload update avatar interface, called with the user's jwt token in the Authorization field of the header
 
-**调用地址**：http://106.14.78.79:40010/user/avatarUpdate
+**Call address**: http://106././.79:40010/user/avatarUpdate
 
-**接口请求类型**：POST
+**Interface request type**: POST
 
-**传入参数类型**：formData
+**Input parameter type**: formData
 
-文件参数名为file，为用户上传的新头像
+File parameter named file, for the new avatar uploaded by the user
 
-**返回参数**：若成功调用，则content中为上传的头像的url地址，若失败则content为空字符串。
+**return parameter**: if the call is successful, the url address of the uploaded avatar will be in the content, if it fails, the content will be an empty string.
 
-以下为成功调用的返回结果
+The following is the return result of a successful call
 
 ```json
 {
-  "content": "https://terminal-1304032890.cos.ap-nanjing.myqcloud.com/terminal/c042703a-ff3e-41ab-a259-0c6b60a26bae.jpg",
-  "message": "upload avatar successfully",
+  "content": "https://terminal-1304032890.cos.ap-nanjing.myqcloud.com/terminal/c042703a-ff3e-41ab-a259-0c6b60a26bae.jpg".
+  "message": "upload avatar successfully".
   "success": true
 }
 ```
 
 ### Detail
 
-获取目标用户的详细信息，在未登录情况下不携带token，在登陆状态下携带token进行请求
+Get the details of the target user, without token if not logged in, and with token if logged in
 
-**调用地址**：http://106.14.78.79:40010/user/detail
+**Call address**: http://106././.79:40010/user/detail
 
-**接口请求类型**：GET
+**Interface request type**: GET
 
-**传入参数类型**：query  参数名：id 类型：int
+**Input parameter type**: query Parameter name: id Type: int
 
-**返回参数**：若成功调用，则content中含有该用户的id，头像，昵称，用户喜好标签列表，关注者数量，被关注者数量，是否关注该用户，用户注册日期
+**return parameters**: if successfully called, the content contains the id of the user, avatar, nickname, list of user preferences tag, number of followers, number of followed, whether to follow the user, user registration date
 
-tag列表组成为tag的id与tag的内容：
+The tag list is composed of the id of the tag and the content of the tag:
 
 ```
 [
-	{id: "",
-	tag_content: ""},
+	{id: "".
+	tag_content: ""}.
 	{}
 ]
 ```
 
 
 
-以下为成功调用的返回结果
+The following is the return result of a successful call
 
 ```json
 {
   "content": {
-    "id": 1,
-    "avatar": "https://terminal-1304032890.cos.ap-nanjing.myqcloud.com/terminal/c042703a-ff3e-41ab-a259-0c6b60a26bae.jpg",
-    "nickname": "string",
+    "id": 1.
+    "avatar": "https://terminal-1304032890.cos.ap-nanjing.myqcloud.com/terminal/c042703a-ff3e-41ab-a259-0c6b60a26bae.jpg".
+    "nickname": "string".
     "tags": [
       {
-        "id": 1,
-        "tag_content": "音乐"
-      },
+        "id": 1.
+        "tag_content": "music"
+      }.
       {
-        "id": 2,
-        "tag_content": "体育"
+        "id": 2.
+        "tag_content": "sports"
       }
-    ],
-    "follower_num": 0,
-    "subscribed_num": 0,
-    "subscribe_status": false,
+    ].
+    "follower_num": 0.
+    "subscribed_num": 0.
+    "subscribe_status": false.
     "created_time": "2022-12-11T01:26:59+08:00"
-  },
-  "message": "get user detail successfully",
+  }.
+  "message": "get user detail successfully".
   "success": true
 }
 ```
@@ -161,79 +161,79 @@ tag列表组成为tag的id与tag的内容：
 
 ### Modify
 
-个人信息修改接口，调用时需在header的Authorization字段中携带用户的jwt token
+Modify the personal information interface, when called you need to carry the user's jwt token in the Authorization field of the header
 
-**调用地址**：http://106.14.78.79:40010/user/modify
+**Call address**: http://106././.79:40010/user/modify
 
-**接口请求类型**：PUT
+**Interface request type**: PUT
 
-**传入参数类型**：body
+**Input parameter type**: body
 
 ```json
 {
-  "nickname": "string",
+  "nickname": "string".
   "tags": []
 }
 ```
 
-**返回参数**：修改成功状态，content始终为空字符串
+**return parameter**: modification success status, content is always empty string
 
 
 
 ### PasswordChange
 
-个人密码修改接口，调用时需在header的Authorization字段中携带用户的jwt token
+personal password change interface, call to carry the user's jwt token in the Authorization field of the header
 
-**调用地址**：http://106.14.78.79:40010/user/passwordChange
+**call address**: http://106././.79:40010/user/passwordChange
 
-**接口请求类型**：PUT
+**Interface request type**: PUT
 
-**传入参数类型**：body
+**Input parameter type**: body
 
 ```json
 {
-  "new_password": "string",
+  "new_password": "string".
   "old_password": "string"
 }
 ```
 
-**返回参数**：修改成功状态，content始终为空字符串
+**return parameter**: modify success status, content is always empty string
 
 
 
 ### FollowerList
 
-查看用户的关注者, 调用时可选择在header的Authorization字段中携带用户的jwt token，携带后显示自己与列表中用户的关注状态，不携带则关注状态全部为false。设计为分页请求，每页大小为15条数据
+View the user's followers, when called you can choose to carry the user's jwt token in the header's Authorization field, carry it to show your own concern status with the list of users, do not carry it then all concern status is false. designed for paging requests, the size of each page is 15 pieces of data
 
-**调用地址**：http://106.14.78.79:40010/user/followerList
+**call address**: http://106././.79:40010/user/followerList
 
-**接口请求类型**：GET
+**Interface request type**: GET
 
-**传入参数类型**：
+**Input parameter type**:
 
-query类型参数 id，参数类型为 int
+query type parameter id, the parameter type is int
 
-query类型参数page，参数类型为 int
+query type parameter page, the parameter type is int
 
-**返回参数**：
+**return parameter**:
 
-若成功调用接口且用户有关注者，则content中为关注者列表，具体包含关注者的id，昵称，头像，发布动态数量，自身对该用户的关注状态，该用户的注册事件；若该用户无关注者则content为null
+If the interface is successfully called and the user has followers, the content is a list of followers, including the id, nickname, avatar, the number of dynamic release, the user's own attention status, the user's registration events; if the user does not have followers, the content is null
 
-以下为成功调用的返回结果
+The following is the return result of the successful call
 
 ```json
 {
   "content": [
     {
-      "id": 2,
-      "nickname": "test",
-      "avatar": "https://terminal-1304032890.cos.ap-nanjing.myqcloud.com/terminal/default.png",
-      "momentNum": 0,
-      "subscribe_status": true,
+      "id": 2.
+      "nickname": "test".
+      "avatar": "https://terminal-1304032890.cos.ap-nanjing.myqcloud.com/terminal/default.png".
+      "momentNum": 0.
+      "subscribe_status": true.
       "created_time": "2022-12-11T18:05:12+08:00"
     }
-  ],
-  "message": "get follower list successfully",
+  ].
+  "message": "get follower list successfully".
   "success": true
 }
 ```
@@ -242,37 +242,37 @@ query类型参数page，参数类型为 int
 
 ### SubscribedList
 
-查看用户的被关注列表, 调用时可选择在header的Authorization字段中携带用户的jwt token，携带后显示自己与列表中用户的关注状态，不携带则关注状态全部为false。设计为分页请求，每页大小为15条数据
+View the user's followed list, optionally carry the user's jwt token in the Authorization field of the header when called, carry it to show your followed status with the users in the list, don't carry it then the followed status is all false. designed as a paged request, each page size is 15 pieces of data
 
-**调用地址**：http://106.14.78.79:40010/user/subscribedList
+**call address**: http://106././.79:40010/user/subscribedList
 
-**接口请求类型**：GET
+**Interface request type**: GET
 
-**传入参数类型**：
+**Input parameter type**:
 
-query类型参数 id，参数类型为 int
+query type parameter id, the parameter type is int
 
-query类型参数page，参数类型为 int
+query type parameter page, the parameter type is int
 
-**返回参数**：
+**return parameter**:
 
-若成功调用接口且用户有关注者，则content中为关注者列表，具体包含关注者的id，昵称，头像，发布动态数量，自身对该用户的关注状态，该用户的注册事件；若该用户无关注者则content为null
+If the interface is successfully called and the user has followers, the content is a list of followers, including the id, nickname, avatar, the number of dynamic release, the user's own attention status, the user's registration events; if the user does not have followers, the content is null
 
-以下为成功调用的返回结果
+The following is the return result of the successful call
 
 ```json
 {
   "content": [
     {
-      "id": 2,
-      "nickname": "test",
-      "avatar": "https://terminal-1304032890.cos.ap-nanjing.myqcloud.com/terminal/default.png",
-      "momentNum": 0,
-      "subscribe_status": true,
+      "id": 2.
+      "nickname": "test".
+      "avatar": "https://terminal-1304032890.cos.ap-nanjing.myqcloud.com/terminal/default.png".
+      "momentNum": 0.
+      "subscribe_status": true.
       "created_time": "2022-12-11T18:05:12+08:00"
     }
-  ],
-  "message": "get subscribed list successfully",
+  ].
+  "message": "get subscribed list successfully".
   "success": true
 }
 ```
@@ -281,35 +281,35 @@ query类型参数page，参数类型为 int
 
 ### TagList
 
-获取所有tag id与内容的接口
+Interface to get all tag ids and contents
 
-**调用地址**：http://106.14.78.79:40010/user/tagList
+**Call address**: http://106././.79:40010/user/tagList
 
-**接口请求类型**：GET
+**Interface request type**: GET
 
-**传入参数类型**：无
+**Input parameter type**: None
 
-**返回参数**：
+**return parameters**:
 
-content为tag数组，以下为成功调用的返回结果
+content is the tag array, the following is the return result of a successful call
 
 ```json
 {
   "content": [
     {
-      "id": 1,
-      "tag_content": "音乐"
-    },
+      "id": 1.
+      "tag_content": "music"
+    }.
     {
-      "id": 2,
-      "tag_content": "体育"
-    },
+      "id": 2.
+      "tag_content": "sports"
+    }.
     {
-      "id": 3,
-      "tag_content": "美术"
+      "id": 3.
+      "tag_content": "fine_arts"
     }
-  ],
-  "message": "get tag list successfully",
+  ].
+  "message": "get tag list successfully".
   "success": true
 }
 ```
@@ -318,17 +318,17 @@ content为tag数组，以下为成功调用的返回结果
 
 ### Follow
 
-关注或取消关注接口。调用时需在header的Authorization字段中携带用户的jwt token。
+Interface for following or unfollowing. Called with the user's jwt token in the Authorization field of the header.
 
-若未关注对应id的用户，则调用后将关注该用户。若已关注对应id的用户，则调用后将取消关注该用户。
+If the user with the corresponding id is not followed, the user will be followed after the call. If the user with the corresponding id is already followed, the user will be unfollowed after the call.
 
-**调用地址**：http://106.14.78.79:40010/user/follow
+**Call address**: http://106././.79:40010/user/follow
 
-**接口请求类型**：GET
+**Interface request type**: GET
 
-**传入参数类型**：query  id  int
+**Input parameter type**: query id int
 
-**返回参数**：调用成功状态，content始终为空字符串
+**return parameters**: call success status, content is always the empty string
 
 ---
 
@@ -338,155 +338,155 @@ content为tag数组，以下为成功调用的返回结果
 
 ### Publish
 
-用户发布动态接口
+User publish dynamic interface
 
-**调用地址**：http://106.14.78.79:40010/moment/publish
+**Call address**: http://106././.79:40010/moment/publish
 
-**接口请求类型**：POST
+**Interface request type**: POST
 
-**传入参数类型**：
+**Input parameter type**:
 
-query类型参数 text_content，参数类型为 string
+query type parameter text_content, parameter type string
 
-formData类型参数file
+formData type parameter file
 
-**返回参数**：success字段代表是否成功发布，若success为false，则message中为错误原因。content始终为空字符串
+**return parameter**: success field represents whether the successful release, if success is false, then the error reason in message. content is always the empty string
 
 
 
 ### Modify
 
-用户修改动态接口
+User modifies the dynamic interface
 
-若原动态无图片，需添加图片：image为空字符串，file传图片
+If the original dynamic without pictures, need to add pictures: image is the empty string, file pass pictures
 
-若原动态无图片，不需要添加新图片：image为空字符串，file空
+If there is no image in the original dynamic, no need to add a new image: image is empty string, file is empty
 
-若原动态有图片，需删除图片：image为空字符串，file空
+If the original dynamic has images, need to delete the images: image is empty string, file is empty
 
-若原动态有图片，需修改图片：image为原图地址，file传图片
+If the original dynamic has images, need to modify the images: image is the original image address, file pass the image
 
-若原动态有图片，不希望改动图片：image为原图地址，file空
+If the original dynamic has a picture, do not want to change the picture: image for the original address, file empty
 
-**调用地址：**http://106.14.78.79:40010/moment/modify
+**call address:** http://106././.79:40010/moment/modify
 
-**接口请求类型**：POST
+**Interface request type**: POST
 
-**传入参数类型**：
+**Input parameter type**:
 
-formData类型参数moment_id，参数类型为int
+formData type parameter moment_id, the parameter type is int
 
-formData类型参数text_content，参数类型为string
+formData type parameter text_content, the parameter type is string
 
-formData类型参数image，参数类型为string
+formData type parameter image, parameter type string
 
-formData类型参数file
+formData type parameter file
 
-**返回参数**：success字段代表是否编辑成功，若success为false，则message中为错误原因。content始终为空字符串
+**return parameter**: success field represents whether the edit is successful, if success is false, then the error reason in message. content is always empty string
 
 
 
 ### Delete
 
-用户删除动态接口
+User delete dynamic interface
 
-**调用地址：**http://106.14.78.79:40010/moment/delete
+**Call address:** http://106././.79:40010/moment/delete
 
-**接口请求类型**：POST
+**Interface request type**: POST
 
-**传入参数类型**： 
+**Input parameter type**: 
 
-query类型参数moment_id，参数类型为int
+query type parameter moment_id, the parameter type is int
 
-**返回参数**：success字段代表是否删除成功，若success为false，则message中为错误原因。content始终为空字符串
+**return parameter**: success field represents whether the deletion is successful, if success is false, then the error reason in message. content is always the empty string
 
 
 
 ### Like
 
-点赞某条动态
+Like a dynamic
 
-like_status是当前是否已点赞，如果传入true，则后端将点赞操作取消，反之亦然
+like_status is whether the current like has been liked, if passed in true, the backend will cancel the like operation, and vice versa
 
-**调用地址：**http://106.14.78.79:40010/moment/like
+**Call address:** http://106././.79:40010/moment/like
 
-**接口请求类型**：POST
+**Interface request type**: POST
 
-**传入参数类型**： 
+**Input parameter type**: 
 
-body类型参数，json格式
+body type parameter, json format
 
 ```
 {
-  "like_status": "bool",
+  "like_status": "bool".
   "moment_id": "int"
 }
 ```
 
-**返回参数**：success字段代表是否点赞成功，若success为false，则message中为错误原因。content始终为空字符串
+**return parameters**: the success field represents whether the like was successful or not, if success is false, then the error reason is in message. content is always the empty string
 
 
 
 ### Comment
 
-评论某条动态，或评论该动态下的评论
+Comment on a dynamic, or comment on the dynamic's comments
 
-如果回复的是动态，则receiver_id和belonging_id传入0即可
+If the reply is a dynamic, the receiver_id and believing_id can be passed to 0
 
-如果回复的是评论（为方便表述，这里规定B评论为被评论一方），则receiver_id应为B评论所属的用户id，belonging_id则为B评论的id
+If the reply is a comment (for the sake of convenience, here specify that comment B is the commented party), then receiver_id should be the user id of comment B, and believing_id should be the id of comment B
 
-**调用地址：**http://106.14.78.79:40010/moment/Comment
+**Call address:** http://106././.79:40010/moment/Comment
 
-**接口请求类型**：POST
+**Interface request type**: POST
 
-**传入参数类型**： 
+**Input parameter type**: 
 
-formData类型参数moment_id，参数类型int
+formData type parameter moment_id, parameter type int
 
-formData类型参数text_content，参数类型string
+formData type parameter text_content, parameter type string
 
-formData类型参数receiver_id，参数类型int
+formData type parameter receiver_id, parameter type int
 
-formData类型参数belonging_id，参数类型int
+formData type parameter belonging_id, parameter type int
 
-formData类型参数file（传递评论时附加的图片）
+formData type parameter file (the image attached when passing comments)
 
-**返回参数**：success字段代表是否评论成功，若success为false，则message中为错误原因。content始终为空字符串
+**return parameter**: the success field represents whether the comment is successful, if success is false, then the reason for the error in message. content is always the empty string
 
 
 
 ### SquareList
 
-列出广场的动态列表，暂定每页10条（可修改）
+List the dynamic list of squares, tentatively 10 items per page (can be modified)
 
-**调用地址：**http://106.14.78.79:40010/moment/squareList
+**Call address:** http://106././.79:40010/moment/squareList
 
-**接口请求类型**：GET
+**Interface request type**: GET
 
-**传入参数类型**： 
+**Input parameter type**: 
 
-query类型参数page，参数类型int
+query type parameter page, parameter type int
 
-**返回参数**：
+**return parameters**:
 
 ```json
 "content": [
 	{
-	  "avatar": "string",
-      "nickname": "string",
-      "text_content": "string",
-      "image": "string",
-      "like_num": "int",
-      "is_liked": "bool",
-      "comment_num": "int",
-      "view_num": "int",
-      "created_time": "time",
-      "moment_id": "int",
-      "sender_id": "int",
+	  "avatar": "string".
+      "nickname": "string".
+      "text_content": "string".
+      "image": "string".
+      "like_num": "int".
+      "is_liked": "bool".
+      "comment_num": "int".
+      "view_num": "int".
+      "created_time": "time".
+      "moment_id": "int".
+      "sender_id": "int".
       "is_follower": "bool"
 	}
-],
-  "message": "search successfully",
+].
+  "message": "search successfully".
   "success": true
 ```
 
@@ -494,36 +494,36 @@ query类型参数page，参数类型int
 
 ## FollowedList
 
-列出被关注人的动态列表，暂定每页10条（可修改）
+List the dynamic list of followed people, tentatively 10 items per page (can be modified)
 
-**调用地址：**http://106.14.78.79:40010/moment/followedList
+**Call address:** http://106././.79:40010/moment/followedList
 
-**接口请求类型**：GET
+**Interface request type**: GET
 
-**传入参数类型**： 
+**Input parameter type**: 
 
-query类型参数page，参数类型int
+query type parameter page, parameter type int
 
-**返回参数**：
+**return parameters**:
 
 ```json
 "content": [
 	{
-	  "avatar": "string",
-      "nickname": "string",
-      "text_content": "string",
-      "image": "string",
-      "like_num": "int",
-      "is_liked": "bool",
-      "comment_num": "int",
-      "view_num": "int",
-      "created_time": "time",
-      "moment_id": "int",
-      "sender_id": "int",
+	  "avatar": "string".
+      "nickname": "string".
+      "text_content": "string".
+      "image": "string".
+      "like_num": "int".
+      "is_liked": "bool".
+      "comment_num": "int".
+      "view_num": "int".
+      "created_time": "time".
+      "moment_id": "int".
+      "sender_id": "int".
       "is_follower": "bool"
 	}
-],
-  "message": "search successfully",
+].
+  "message": "search successfully".
   "success": true
 ```
 
@@ -531,52 +531,52 @@ query类型参数page，参数类型int
 
 ### CommentList
 
-列出点击进入动态详情后的评论内容
+List the comments after clicking into the dynamic details
 
-该部分参考soul的实现，进入动态详情后显示出所有对动态的评论内容，每条评论最多只显示两条子评论("sub_comment"数组里显示)，后续可进入“更多回复”的界面，再调用SubCommentList接口即可.
+This part refers to soul's implementation, after entering the dynamic details, it shows all the dynamic comments, each comment only shows at most two subcomments ("sub_comment" array display), then you can enter the "more replies" interface, and then call the SubCommentList interface.
 
-**调用地址：**http://106.14.78.79:40010/moment/CommentList
+**Call address:** http://106././.79:40010/moment/CommentList
 
-**接口请求类型**：GET
+**Interface request type**: GET
 
-query类型参数page，参数类型int
+query type parameter page, parameter type int
 
-query类型参数moment_id，参数类型int
+query type parameter moment_id, parameter type int
 
-**返回参数**：
+**return parameters**:
 
 ```json
 "content": [
 	{
-	  "user_id": 	"int",
-      "comment_id": "int",
-      "nickname": "string",
-      "avatar": "string",
-      "text_content": "string",
-      "image": "string",
-      "created_time": "time",
+	  "user_id": "int".
+      "comment_id": "int".
+      "nickname": "string".
+      "avatar": "string".
+      "text_content": "string".
+      "image": "string".
+      "created_time": "time".
       "sub_comment": [
       	{
-      	  "user_id": "int",
-          "comment_id": "int",
-          "nickname": "string",
-          "avatar": "string",
-          "text_content": "string",
-          "image": "string",
-          "created_time": "time",
-          "receiver_id": "int",
+      	  "user_id": "int".
+          "comment_id": "int".
+          "nickname": "string".
+          "avatar": "string".
+          "text_content": "string".
+          "image": "string".
+          "created_time": "time".
+          "receiver_id": "int".
           "receiver_name": "string"
-      	},
+      	}.
         {
             ...
         }
       ]
-	},
+	}.
     {
         ...
     }
-],
-"message": "search successfully",
+].
+"message": "search successfully".
 "success": true
       
 ```
@@ -585,39 +585,38 @@ query类型参数moment_id，参数类型int
 
 ### SubCommentList
 
-查看某条评论的子评论
+View the subcomments of a comment
 
-传递的参数belonging_id上面comment接口中已经介绍过了，代表评论B的id
+The passed parameter believing_id is described in the comment interface above and represents the id of comment B
 
-**调用地址：**http://106.14.78.79:40010/moment/SubCommentList
+**Call address:** http://106././.79:40010/moment/SubCommentList
 
-**接口请求类型**：GET
+**interface request type**: GET
 
-query类型参数page，参数类型int
+query type parameter page, parameter type int
 
-query类型参数belonging_id，参数类型int
+query type parameter belonging_id, parameter type int
 
-**返回参数**：
+**return parameters**:
 
 ```json
-"sub_comment": 
+"sub_comment". 
 [
   {
-	"user_id": "int",
-    "comment_id": "int",
-    "nickname": "string",
-    "avatar": "string",
-    "text_content": "string",
-    "image": "string",
-    "created_time": "time",
-    "receiver_id": "int",
+	"user_id": "int".
+    "comment_id": "int".
+    "nickname": "string".
+    "avatar": "string".
+    "text_content": "string".
+    "image": "string".
+    "created_time": "time".
+    "receiver_id": "int".
     "receiver_name": "string"
-   },
+   }.
    {
    	...
    }
- ]，
-  "message": "search successfully",
+ ], the
+  "message": "search successfully".
   "success": true
 ```
-
