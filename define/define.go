@@ -2,20 +2,20 @@ package define
 
 import "github.com/dgrijalva/jwt-go"
 
-const Port = "40010"
+const Port = ""******************""
 
 const Username = "******"
 const Password = "******"
 
 //const Username = "debian-sys-maint"
-//const Password = "xAftDU4Lgms6LLFJ"
+//const Password = ""******************""
 
 const Dbname = "****"
 const JwtSecret = "****"
 
 //const BucketPath = "https://terminal-1304032890.cos.ap-nanjing.myqcloud.com"
 //const SecretID = "AKIDwjL5btxnPnwsb5MPUL0TkodEfsrb6Zpq"
-//const SecretKey = "sWw73lFVXO6apppcEeuynOlvsc8SYRTP"
+//const SecretKey = ""******************""
 
 const BucketPath = "****"
 const DefaultAvatar = "****"
