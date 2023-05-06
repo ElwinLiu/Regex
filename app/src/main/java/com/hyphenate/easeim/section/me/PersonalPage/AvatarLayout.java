@@ -93,7 +93,7 @@ public class AvatarLayout extends RelativeLayout {
 //            // 获取 appUserId
 //            int appUserId = sharedPreferences.getInt("appUserId", 0);
 //            Request request = new Request.Builder()
-//                    .url("http://106.14.78.79:40010/user/detail?id=" + Integer.toString(uid))
+//                    .url("http://106././.79:40010/user/detail?id=" + Integer.toString(uid))
 //                    .get()
 //                    .addHeader("Authorization", token)
 //                    .build();

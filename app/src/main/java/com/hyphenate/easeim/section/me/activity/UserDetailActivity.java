@@ -334,7 +334,7 @@ public class UserDetailActivity extends BaseInitActivity {
             String token = sharedPreferences.getString("appUserToken","");
 
             Request request = new Request.Builder()
-                    .url("http://106.14.78.79:40010/user/avatarUpdate")
+                    .url("http://106././.79:40010/user/avatarUpdate")
                     .method("POST", body)
                     .addHeader("Authorization", token)
                     .build();

@@ -1,3 +1,17 @@
+# Introduction
+
+The project is to send and open a social app, and the basis of the software is introduced as follows:
+
+**1、User Matching**
+It can find like-minded communication partners for users through soul matching and voice matching.
+**2、Instant communication**
+In instant messaging, it can ensure the stable delivery of conversation messages. Users can send text messages, emoji messages, picture messages, voice messages, file messages, etc. You can make voice calls and video calls with other users. Enables users to view and search message history. Users can view the recent instant messaging session records.
+
+**3、Audio and video calls**
+It can provide stable audio and video call service for users in voice matching and instant messaging to ensure stable conversation connection and good sound and picture quality. Yes,
+**4、Server performance optimization**
+Front-end and back-end data interaction through RESTFUL API. By optimizing the performance of the back-end service, we can shorten the database query time consumption and reduce the logic processing time to improve the service performance. Later, load balancing, content distribution center, message middleware and other components can be introduced in the architecture to further improve the performance of the application and provide users with excellent service availability.
+
 # EaseIM
 
 ------

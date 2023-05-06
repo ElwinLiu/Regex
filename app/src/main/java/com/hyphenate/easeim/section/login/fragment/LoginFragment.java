@@ -207,7 +207,7 @@ public class LoginFragment extends BaseInitFragment implements View.OnClickListe
                 + mUserName + "\",\r\n  \"password\": \""
                 + mPwd + "\"\r\n}");
         Request request = new Request.Builder()
-                .url("http://106.14.78.79:40010/user/login")
+                .url("http://106././.79:40010/user/login")
                 .method("POST", body)
                 .addHeader("Content-Type", "application/json")
                 .build();

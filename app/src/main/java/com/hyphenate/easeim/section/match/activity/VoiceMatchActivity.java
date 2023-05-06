@@ -386,7 +386,7 @@ public class VoiceMatchActivity extends BaseActivity implements View.OnClickList
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String url="http://106.14.78.79:40010/user/detail?id="+id_o;
+                String url="http://106././.79:40010/user/detail?id="+id_o;
                 OkHttpClient okHttpClient = new OkHttpClient();
                 Request request = new Request.Builder()
                         .url(url)//上传接口
@@ -556,7 +556,7 @@ public class VoiceMatchActivity extends BaseActivity implements View.OnClickList
             public void run() {
                 OkHttpClient okHttpClient = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("http://106.14.78.79:40010/match/audioStop?id="+call_id)
+                        .url("http://106././.79:40010/match/audioStop?id="+call_id)
                         .addHeader("Authorization", appUserToken)
                         .get()
                         .build();

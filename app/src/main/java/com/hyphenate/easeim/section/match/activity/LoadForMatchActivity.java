@@ -87,7 +87,7 @@ public class LoadForMatchActivity extends BaseActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String url="http://106.14.78.79:40010/user/detail?id="+id;
+                String url="http://106././.79:40010/user/detail?id="+id;
                 OkHttpClient okHttpClient = new OkHttpClient();
                 Request request = new Request.Builder()
                         .url(url)//上传接口
@@ -126,7 +126,7 @@ public class LoadForMatchActivity extends BaseActivity {
 
                 if (type.equals("Soul")) {
 
-                    String url = "http://106.14.78.79:40010/match/normal";
+                    String url = "http://106././.79:40010/match/normal";
                     OkHttpClient okHttpClient = new OkHttpClient();
                     Request request = new Request.Builder()
                             .url(url)//上传接口
@@ -167,7 +167,7 @@ public class LoadForMatchActivity extends BaseActivity {
                 }
                 else if (type.equals("Voice")) {
                     //语音匹配开始通话
-                    String url = "http://106.14.78.79:40010/match/audio";
+                    String url = "http://106././.79:40010/match/audio";
                     OkHttpClient okHttpClient = new OkHttpClient();
                     JSONObject jsonObjectS = new JSONObject();
                     try {

@@ -15,7 +15,7 @@ public class httpHelper {
 
 
     static {
-        baseURL = "http://106.14.78.79:40010";  //TODO
+        baseURL = "http://106././.79:40010";  //TODO
         OkHttpClient client = new OkHttpClient.Builder().
                 connectTimeout(60, TimeUnit.SECONDS).
                 readTimeout(60, TimeUnit.SECONDS).

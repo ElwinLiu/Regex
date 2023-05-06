@@ -254,7 +254,7 @@ public class RegisterFragment extends BaseInitFragment implements TextWatcher, V
                             + mPwd + "\",\r\n  \"tags\": "
                             + selectedTags.toString() + "\r\n}");
             Request request = new Request.Builder()
-                    .url("http://106.14.78.79:40010/user/register")
+                    .url("http://106././.79:40010/user/register")
                     .method("POST", body)
                     .addHeader("Content-Type", "application/json")
                     .build();

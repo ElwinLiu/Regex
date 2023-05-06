@@ -78,7 +78,7 @@ public class OfflinePushNickActivity extends BaseInitActivity implements OnClick
             // 获取 appUserId
             Integer appUserId = sharedPreferences.getInt("appUserId", 0);
             Request request = new Request.Builder()
-                    .url("http://106.14.78.79:40010/user/detail?id=" + appUserId.toString())
+                    .url("http://106././.79:40010/user/detail?id=" + appUserId.toString())
                     .get()
                     .addHeader("Authorization", token)
                     .build();
@@ -167,7 +167,7 @@ public class OfflinePushNickActivity extends BaseInitActivity implements OnClick
         // 获取 appUserId
         int appUserId = sharedPreferences.getInt("appUserId", 0);
         Request request = new Request.Builder()
-                .url("http://106.14.78.79:40010/user/detail?id=" + Integer.toString(appUserId))
+                .url("http://106././.79:40010/user/detail?id=" + Integer.toString(appUserId))
                 .get()
                 .addHeader("Authorization", token)
                 .build();
@@ -255,7 +255,7 @@ public class OfflinePushNickActivity extends BaseInitActivity implements OnClick
 //            // 获取 appUserId
 //            int appUserId = sharedPreferences.getInt("appUserId", 0);
 //            Request request = new Request.Builder()
-//                    .url("http://106.14.78.79:40010/user/detail?id=" + Integer.toString(appUserId))
+//                    .url("http://106././.79:40010/user/detail?id=" + Integer.toString(appUserId))
 //                    .get()
 //                    .addHeader("Authorization", token)
 //                    .build();
@@ -329,7 +329,7 @@ public class OfflinePushNickActivity extends BaseInitActivity implements OnClick
                         SharedPreferences sharedPreferences = getSharedPreferences("appUserInfo", MODE_PRIVATE);
                         String token = sharedPreferences.getString("appUserToken", "");
                         Request request = new Request.Builder()
-                                .url("http://106.14.78.79:40010/user/modify")
+                                .url("http://106././.79:40010/user/modify")
                                 .method("PUT", body)
                                 .addHeader("Authorization", token)
                                 .addHeader("Content-Type", "application/json")
