@@ -13,8 +13,8 @@ const Password = "******"
 const Dbname = "****"
 const JwtSecret = "****"
 
-//const BucketPath = "https://terminal-1304032890.cos.ap-nanjing.myqcloud.com"
-//const SecretID = "AKIDwjL5btxnPnwsb5MPUL0TkodEfsrb6Zpq"
+//const BucketPath = "********************"
+//const SecretID = "********************"
 //const SecretKey = ""******************""
 
 const BucketPath = "****"
